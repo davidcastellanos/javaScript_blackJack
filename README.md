@@ -32,3 +32,6 @@
 -   Crear imágenes en la página
 
 -   Realizar la lógica para implementar un competidor de cartas.
+
+
+![Game example](https://github.com/davidcastellanos/javaScript_blackJack_v1/blob/main/game_example1.gif)
