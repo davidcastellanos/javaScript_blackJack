@@ -68,46 +68,6 @@ const pedirCarta = () => {
 // pedirCarta();
 
 
-
-/* TURNO DE LA COMPUTADORA*/
-const turnoComputadora = ( puntosMinimosJugador ) => {
-     do {
-    const carta = pedirCarta();
-
-    puntosComputadora = puntosComputadora + valorCarta( carta );
-    conteoPuntosHTML[1].innerText = puntosComputadora;
-
-    const imgCarta = document.createElement('img')
-    imgCarta.src = ` assets/cartas/${ carta }.png`;
-    imgCarta.classList.add( 'carta' );
-    divCartasComputadora.append( imgCarta );
-
-    if ( puntosMinimosJugador > 21 ){
-        break;
-    }
-
-     } while (  (puntosComputadora < puntosMinimosJugador) && puntosMinimosJugador <= 21 );
-
-     setTimeout( () => {
-
-         if ( puntosMinimosJugador === puntosComputadora ){
-             alert('Empate, nadie Gana');
-         } else if ( puntosMinimosJugador > 21 ) {
-             alert( 'Gana Computadora' );
-         } else if (puntosComputadora > 21  ) {
-             alert( 'Gana Jugador' )
-         } else {
-             alert( 'Gana Computadora' );
-         }
-
-     }, 25 );
-
-
-
-}
-
-
-
 // ésta función recoge el valor de la carta y lo asigna COMO puntos acumulados
 const valorCarta = ( cartaTomada ) => {
     const valor = cartaTomada.substring( 0, cartaTomada.length - 1 ); // parte la carta tipo splice, y escoge all menos el último indice
@@ -136,6 +96,42 @@ const valorCarta = ( cartaTomada ) => {
 // console.log( { valorFinal } );
 
 
+/* TURNO DE LA COMPUTADORA*/
+const turnoComputadora = ( puntosMinimosJugador ) => {
+    do {
+        const carta = pedirCarta();
+
+        puntosComputadora = puntosComputadora + valorCarta( carta );
+        conteoPuntosHTML[1].innerText = puntosComputadora;
+
+        const imgCarta = document.createElement('img')
+        imgCarta.src = ` assets/cartas/${ carta }.png`;
+        imgCarta.classList.add( 'carta' );
+        divCartasComputadora.append( imgCarta );
+
+        if ( puntosMinimosJugador > 21 ){
+            break;
+        }
+
+    } while (  (puntosComputadora < puntosMinimosJugador) && puntosMinimosJugador <= 21 );
+
+    setTimeout( () => {
+
+        if ( puntosMinimosJugador === puntosComputadora ){
+            alert('Empate, nadie Gana');
+        } else if ( puntosMinimosJugador > 21 ) {
+            alert( 'Gana Computadora' );
+        } else if (puntosComputadora > 21  ) {
+            alert( 'Gana Jugador' )
+        } else {
+            alert( 'Gana Computadora' );
+        }
+
+    }, 25 );
+
+
+
+}
 
 
 /* EVENTOS */
